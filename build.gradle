@@ -1,5 +1,9 @@
 plugins {
     id 'java'
+    id 'war'
+}
+war{
+    archiveName='ROOT'
 }
 
 group 'org.example'
@@ -10,9 +14,25 @@ repositories {
 }
 
 dependencies {
+// https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.7'
+// https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.7'
+// https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.7'
+// https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.22'
+// https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api
+    compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
+// https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/jstl
+    implementation group: 'jstl', name: 'jstl', version: '1.2'
+    // https://mvnrepository.com/artifact/org.glassfish.web/jstl-impl
+    runtimeOnly group: 'org.glassfish.web', name: 'jstl-impl', version: '1.2'
+
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
+
 
 test {
     useJUnitPlatform()
