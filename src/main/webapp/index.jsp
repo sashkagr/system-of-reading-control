@@ -11,7 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-<%--<jsp:forward page=""></jsp:forward>--%>
-<jsp:include page="WEB-INF/pages/signUp.jsp"></jsp:include>
+    <jsp:forward page="/controller"></jsp:forward>
 </body>
 </html>

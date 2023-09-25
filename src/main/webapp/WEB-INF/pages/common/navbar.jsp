@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: sashk
@@ -18,14 +19,23 @@
     <div class="container-fluid">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/controller?command=show_main_page">Home</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Sign In</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Sign Up</a>
-            </li>
+            <c:choose>
+                <c:when test="${not empty sessionScope.login}">
+                    <li class="nav-item">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/controller?command=logout">Log out</a>
+                    </li>
+                </c:when>
+                <c:otherwise>
+                    <li class="nav-item">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/controller?command=show_login_page">Sign In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/controller?command=show_signup_page">Sign Up</a>
+                    </li>
+                </c:otherwise>
+            </c:choose>
         </ul>
     </div>
 </nav>
