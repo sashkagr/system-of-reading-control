@@ -26,6 +26,13 @@
                     <li class="nav-item">
                         <a class="nav-link" href="${pageContext.request.contextPath}/controller?command=logout">Log out</a>
                     </li>
+                    <li class="nav-item">
+                        <form method="get" action="${pageContext.request.contextPath}/controller">
+                            <input type="hidden" id="command" name="command" value="search_book"/>
+                            <input type="text" id="search_query" name="search_query"/>
+                            <input type="submit" value="Search"/>
+                        </form>
+                    </li>
                 </c:when>
                 <c:otherwise>
                     <li class="nav-item">
@@ -41,3 +48,5 @@
 </nav>
 </body>
 </html>
+
+
