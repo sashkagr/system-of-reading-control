@@ -43,11 +43,11 @@ public class BookGetApiResponse {
     }
 
     @JsonProperty("authors")
-    private List<BookGetApiAuthorResponse> authors;
-    public List<BookGetApiAuthorResponse> getAuthors() {
+    private List<BookGetApiAuthorsResponse> authors;
+    public List<BookGetApiAuthorsResponse> getAuthors() {
         return authors;
     }
-    public void setAuthors(List<BookGetApiAuthorResponse> authors) {
+    public void setAuthors(List<BookGetApiAuthorsResponse> authors) {
         this.authors = authors;
     }
 
