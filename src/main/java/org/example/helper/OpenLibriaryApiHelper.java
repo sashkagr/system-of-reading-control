@@ -15,6 +15,7 @@ public class OpenLibriaryApiHelper {
 //   private static final String API_KEY = ResourceBundle.getBundle("application").getString("google.api.books.key");
 
     public static String getBookByKeys(String keys) {
+        ObjectMapper objectMapper = new ObjectMapper();
         String jsonResponse = "";
         try {
             String apiUrl = "https://openlibrary.org/" + keys+".json";
@@ -35,6 +36,16 @@ public class OpenLibriaryApiHelper {
 
                 // Parse the JSON response here and extract the book information
                 jsonResponse = response.toString();
+                BookSearchApiResponse responses = objectMapper.readValue(jsonResponse, BookSearchApiResponse.class);
+                if (!responses.getDocs().isEmpty())
+                {
+                    jsonResponse = responses.getDocs().get(0).getKey();
+                }
+                else
+                {
+                    jsonResponse = "";
+                }
+
                 System.out.println(jsonResponse);
             } else {
                 System.out.println("Error: " + responseCode);
