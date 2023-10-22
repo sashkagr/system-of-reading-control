@@ -4,6 +4,7 @@ import org.example.command.Command;
 import org.example.command.ResponseContext;
 import org.example.command.impl.WrappingRequestContext;
 import org.example.helper.GoogleBooksApiHelper;
+import org.example.helper.OpenLibriaryApiHelper;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -29,8 +30,11 @@ public class ApplicationController extends HttpServlet {
     }
 
     private void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String resultSecond = GoogleBooksApiHelper.getBookByISBN("0201558025");
-        System.out.println(resultSecond);
+       // String resultSecond = GoogleBooksApiHelper.getBookByISBN("0201558025");
+        //System.out.println(resultSecond);
+       // String resultThird = OpenLibriaryApiHelper.getBookByKeys("works/OL45804W");
+        String resultThird = OpenLibriaryApiHelper.getBookByKeys(OpenLibriaryApiHelper.searchBookByName("the+lord+of+the+rings"));
+        System.out.println(resultThird);
         final String commandName = req.getParameter(COMMAND_PARAMETER_NAME);
         final Command businessCommand = Command.of(commandName);
         final ResponseContext result = businessCommand.execute(WrappingRequestContext.of(req));
