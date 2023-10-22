@@ -4,9 +4,10 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ResourceBundle;
 
 public class GoogleBooksApiHelper {
-    private static final String API_KEY = "AIzaSyC01lVOawC92nEXiVOK62wRo6ZDMlIruLs";
+    private static final String API_KEY = ResourceBundle.getBundle("application").getString("google.api.books.key");
 
     public static String getBookByISBN(String isbn) {
         String jsonResponse = "";
