@@ -68,10 +68,14 @@ public class OpenLibriaryApiHelper {
 
                 // Parse the JSON response here and extract the book information
                 jsonResponse = response.toString();
-                BookSearchApiResponse[] responses = objectMapper.readValue(jsonResponse, BookSearchApiResponse[].class);
-                if (!List.of(responses).isEmpty())
+                BookSearchApiResponse responses = objectMapper.readValue(jsonResponse, BookSearchApiResponse.class);
+                if (!responses.getDocs().isEmpty())
                 {
-                    jsonResponse = responses[0].getKey();
+                    jsonResponse = responses.getDocs().get(0).getKey();
+                }
+                else
+                {
+                    jsonResponse = "";
                 }
                 System.out.println(jsonResponse);
             } else {
