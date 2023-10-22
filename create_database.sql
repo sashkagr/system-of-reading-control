@@ -9,3 +9,13 @@ CREATE TABLE users
     password VARCHAR(255),
     PRIMARY KEY (id)
 );
+CREATE TABLE books
+(
+    id INT AUTO_INCREMENT NOT NULL,
+    title VARCHAR(255) UNIQUE,
+    author VARCHAR(255),
+    author VARCHAR(255),
+    author VARCHAR(255),
+    author VARCHAR(255),
+    PRIMARY KEY (id)
+);
