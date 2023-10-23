@@ -1,20 +1,19 @@
 package org.example.model;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class BookGetApiResponse {
-
-   @JsonProperty("description")
-        private BookGetApiDescriptionResponse description;
-        public BookGetApiDescriptionResponse getDescription () {
+public class BookDetApiResponseByStr {
+    @JsonProperty("description")
+    private String description;
+    public String getDescription() {
         return description;
     }
-        public void setDescription (BookGetApiDescriptionResponse description){
+    public void setDescription(String description){
         this.description = description;
     }
+
 
     @JsonProperty("title")
     private String title;
