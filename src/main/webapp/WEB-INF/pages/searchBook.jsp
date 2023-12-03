@@ -44,7 +44,7 @@
                 <div class="book-details">
                     <h2><c:out value="${book.title}"/></h2>
                     <p><strong>Author:</strong> <c:out value="${book.author}"/></p>
-                    <p><strong>Description:</strong>   <button class="add-button"><a href="localhost:8080/?command=show_book&key=${book.id}">show more</a></button> </p>
+                    <p><strong>Description:</strong>   <a href="?command=show_book&key=${book.id}"><button class="add-button">show more</button></a> </p>
                 </div>
             </div>
         </c:forEach>

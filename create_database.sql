@@ -12,10 +12,14 @@ CREATE TABLE users
 CREATE TABLE books
 (
     id INT AUTO_INCREMENT NOT NULL,
-    title VARCHAR(255) UNIQUE,
+    book_key VARCHAR(255) UNIQUE,
+    title VARCHAR(255),
+    description VARCHAR(255),
+    cover VARCHAR(255),
     author VARCHAR(255),
-    author VARCHAR(255),
-    author VARCHAR(255),
-    author VARCHAR(255),
+    user_id INT,
+    is_finished INT DEFAULT 0,
+    start_date DATE,
+    end_date DATE,
     PRIMARY KEY (id)
 );

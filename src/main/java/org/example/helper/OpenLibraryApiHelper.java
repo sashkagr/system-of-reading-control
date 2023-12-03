@@ -216,6 +216,41 @@ public class OpenLibraryApiHelper {
             book.setAuthor(authorByKeys.getPersonalName());
             book.setTitle(bookDetApiResponseByStr.getTitle());
         }
+        else
+        {
+            book.setId(key);
+            if (bookGetApiResponse.getDescription() != null)
+            {
+                book.setDescription(bookGetApiResponse.getDescription().getValue());
+            }
+            else if (bookDetApiResponseByStr.getDescription() != null)
+            {
+                book.setDescription(bookDetApiResponseByStr.getDescription());
+            }
+
+            if (bookGetApiResponse.getAuthors() != null)
+            {
+                AuthorGetApiResponse authorByKeys = getAuthorByKeys(bookGetApiResponse.getAuthors().get(0).getAuthor().getKey());
+                book.setAuthor(authorByKeys.getPersonalName());
+            }
+            else if (bookDetApiResponseByStr.getAuthors() != null)
+            {
+                AuthorGetApiResponse authorByKeys = getAuthorByKeys(bookDetApiResponseByStr.getAuthors().get(0).getAuthor().getKey());
+                book.setAuthor(authorByKeys.getPersonalName());
+            }
+
+            if (bookGetApiResponse.getTitle() != null)
+            {
+                book.setTitle(bookGetApiResponse.getTitle());
+            }
+            else if (bookDetApiResponseByStr.getTitle() != null)
+            {
+                book.setTitle(bookDetApiResponseByStr.getTitle());
+            }
+        }
+        if (bookGetApiResponse.getCovers() != null && !bookGetApiResponse.getCovers().isEmpty()) {
+            book.setCover("https://covers.openlibrary.org/b/id/" + bookGetApiResponse.getCovers().get(0) + "-M.jpg");
+        }
         return book;
     }
 
