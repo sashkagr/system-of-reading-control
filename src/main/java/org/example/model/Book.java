@@ -1,5 +1,7 @@
 package org.example.model;
 
+import java.sql.Date;
+
 public class Book {
     private String id;
     private String title;
@@ -47,4 +49,33 @@ public class Book {
     }
 
     private String cover;
+
+    private boolean isFinished;
+    private Date startDate;
+
+    private Date endDate;
+
+    public boolean isFinished() {
+        return isFinished;
+    }
+
+    public void setFinished(boolean finished) {
+        isFinished = finished;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
 }

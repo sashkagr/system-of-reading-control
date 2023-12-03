@@ -33,6 +33,9 @@
                             <input type="submit" value="Search"/>
                         </form>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/controller?command=SHOW_MY_LIBRARY_PAGE">My Library</a>
+                    </li>
                 </c:when>
                 <c:otherwise>
                     <li class="nav-item">
