@@ -36,19 +36,17 @@
     </style>
 </head>
 <body>
-    <jsp:include page="common/navbar.jsp"></jsp:include>
-    <div class="container mt-3">
-        <c:forEach var="book" items="${requestScope.books}">
-            <div class="book">
-                <img src="${book.cover}" alt="${book.title} cover"/>
-                <div class="book-details">
-                    <h2><c:out value="${book.title}"/></h2>
-                    <p><strong>Author:</strong> <c:out value="${book.author}"/></p>
-                    <p><strong>Description:</strong>   <button class="add-button"><a href="localhost:8080/?command=show_book&key=${book.id}">show more</a></button> </p>
-                </div>
+<jsp:include page="common/navbar.jsp"></jsp:include>
+<div class="container mt-3">
+        <div class="book">
+            <img src="${requestScope.book.cover}" alt="${requestScope.book.title} cover"/>
+            <div class="book-details">
+                <h2><c:out value="${requestScope.book.title}"/></h2>
+                <p><strong>Author:</strong> <c:out value="${requestScope.book.author}"/></p>
+                <p><strong>Description:</strong> <c:out value="${requestScope.book.description}"/>  </p>
             </div>
-        </c:forEach>
-    </div>
+        </div>
+
+</div>
 </body>
 </html>
-<%--<c:out value="${book.description}"/>--%>

@@ -3,6 +3,7 @@ package org.example.command;
 import org.example.command.impl.LoginCommand;
 import org.example.command.impl.LogoutCommand;
 import org.example.command.impl.SignUpCommand;
+import org.example.command.impl.page.ShowBookPageCommand;
 import org.example.command.impl.page.ShowLoginPageCommand;
 import org.example.command.impl.page.ShowMainPageCommand;
 import org.example.command.impl.page.ShowSearchPageCommand;
@@ -15,6 +16,7 @@ public enum CommandManager {
     SHOW_LOGIN_PAGE(ShowLoginPageCommand.INSTANCE),
     SHOW_SIGNUP_PAGE(ShowSignUpPageCommand.INSTANCE),
     SEARCH_BOOK(ShowSearchPageCommand.INSTANCE),
+    SHOW_BOOK(ShowBookPageCommand.INSTANCE),
     DEFAULT(ShowMainPageCommand.INSTANCE);
 
     private final Command command;
