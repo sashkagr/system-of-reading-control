@@ -5,6 +5,7 @@ import org.example.command.impl.LogoutCommand;
 import org.example.command.impl.ManageBookCommand;
 import org.example.command.impl.SignUpCommand;
 import org.example.command.impl.page.ShowBookPageCommand;
+import org.example.command.impl.page.ShowBookPlanPageCommand;
 import org.example.command.impl.page.ShowLoginPageCommand;
 import org.example.command.impl.page.ShowMainPageCommand;
 import org.example.command.impl.page.ShowMyLibraryPageCommand;
@@ -21,6 +22,7 @@ public enum CommandManager {
     SHOW_BOOK(ShowBookPageCommand.INSTANCE),
     MANAGE_BOOK(ManageBookCommand.INSTANCE),
     SHOW_MY_LIBRARY_PAGE(ShowMyLibraryPageCommand.INSTANCE),
+    SHOW_BOOK_PLAN(ShowBookPlanPageCommand.INSTANCE),
     DEFAULT(ShowMainPageCommand.INSTANCE);
 
     private final Command command;
