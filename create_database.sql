@@ -14,7 +14,7 @@ CREATE TABLE books
     id INT AUTO_INCREMENT NOT NULL,
     book_key VARCHAR(700) UNIQUE,
     title VARCHAR(700),
-    description VARCHAR(700),
+    description BLOB,
     cover VARCHAR(700),
     author VARCHAR(700),
     user_id INT,
