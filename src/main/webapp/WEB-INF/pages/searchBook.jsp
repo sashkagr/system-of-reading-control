@@ -38,6 +38,9 @@
 <body>
     <jsp:include page="common/navbar.jsp"></jsp:include>
     <div class="container mt-3">
+        <c:if test="${requestScope.isMyLibrary}">
+            <h3>Unfinished books:</h3>
+        </c:if>
         <c:forEach var="book" items="${requestScope.books}">
             <div class="book">
                 <img src="${book.cover}" alt="${book.title} cover"/>
@@ -48,6 +51,20 @@
                 </div>
             </div>
         </c:forEach>
+        <c:if test="${requestScope.isMyLibrary}">
+            <hr />
+            <h3>Finished books:</h3>
+            <c:forEach var="book" items="${requestScope.booksReaded}">
+                <div class="book">
+                    <img src="${book.cover}" alt="${book.title} cover"/>
+                    <div class="book-details">
+                        <h2><c:out value="${book.title}"/></h2>
+                        <p><strong>Author:</strong> <c:out value="${book.author}"/></p>
+                        <p><strong>Description:</strong>   <a href="?command=show_book&key=${book.id}"><button class="add-button">show more</button></a> </p>
+                    </div>
+                </div>
+            </c:forEach>
+        </c:if>
     </div>
 </body>
 </html>

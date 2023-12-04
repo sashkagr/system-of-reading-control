@@ -9,6 +9,7 @@ import org.example.service.BookService;
 import org.example.service.impl.BookServiceImpl;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public enum ShowMyLibraryPageCommand implements Command {
     INSTANCE;
@@ -31,8 +32,11 @@ public enum ShowMyLibraryPageCommand implements Command {
     public ResponseContext execute(RequestContext requestContext) {
         Long userId = (Long) requestContext.getSession().getAttribute("id");
         List<Book> books = bookService.getAllUserBooks(userId.intValue());
-
+        List<Book> booksReaded = books.stream().filter(Book::isFinished).collect(Collectors.toList());
+        books = books.stream().filter(book -> !book.isFinished()).collect(Collectors.toList());
+        requestContext.setAttribute("isMyLibrary", true);
         requestContext.setAttribute("books", books);
+        requestContext.setAttribute("booksReaded", booksReaded);
         return MAIN_PAGE_RESPONSE;
     }
 }

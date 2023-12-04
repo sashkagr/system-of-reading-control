@@ -33,9 +33,14 @@ public enum ManageBookCommand implements Command {
             final String StartDate = String.valueOf(requestContext.getParameter("startDate"));
             final String endDate = String.valueOf(requestContext.getParameter("endDate"));
             final String isFinished = String.valueOf(requestContext.getParameter("finishedCheckbox"));
-            Date endDateD = Date.valueOf(endDate);
-            Date startDateD = Date.valueOf(StartDate);
-            if (endDateD.before(startDateD))
+            Date endDateD = "null".equals(endDate) || endDate.isEmpty() ? null : Date.valueOf(endDate);
+            Date startDateD = "null".equals(StartDate) || StartDate.isEmpty() ? null : Date.valueOf(StartDate);
+
+            if (startDateD == null && endDateD != null)
+            {
+                requestContext.setAttribute("errorMessage", "Start date can't be empty if end date is set");
+            }
+            else if (startDateD != null && endDateD != null && endDateD.before(startDateD))
             {
                 requestContext.setAttribute("errorMessage", "End date can't be before start date");
             }
