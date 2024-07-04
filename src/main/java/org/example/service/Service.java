@@ -5,7 +5,7 @@ import java.util.Optional;
 
 /**
  * Service that creates and reads data transfer object models
- *
+ * @param <T>
  * @param <K> defines DTO model
  */
 public interface Service<T, K> {

@@ -46,13 +46,6 @@ public enum ShowBookPageCommand implements Command {
         return MAIN_PAGE_RESPONSE;
     }
 
-//    public ResponseContext execute(RequestContext requestContext) {
-//        final String searchQuery = String.valueOf(requestContext.getParameter("search_query"));
-//        List<Book> books = OpenLibraryApiHelper.searchBookByName(searchQuery);
-//        requestContext.setAttribute("books", books);
-//        return MAIN_PAGE_RESPONSE;
-//    }
-
 
 
 }
